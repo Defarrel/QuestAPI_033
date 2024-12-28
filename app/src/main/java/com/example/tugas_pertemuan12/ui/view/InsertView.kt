@@ -115,14 +115,6 @@ fun FormInput(
             singleLine = true
         )
         OutlinedTextField(
-            value = insertUiEvent.nama,
-            onValueChange = { onvalueChange(InsertUiEvent(nama = it)) },
-            label = { Text(text = "Name") },
-            modifier = Modifier.fillMaxWidth(),
-            enabled = enabled,
-            singleLine = true
-        )
-        OutlinedTextField(
             value = insertUiEvent.nim,
             onValueChange = { onvalueChange(InsertUiEvent(nim = it)) },
             label = { Text(text = "NIM") },
