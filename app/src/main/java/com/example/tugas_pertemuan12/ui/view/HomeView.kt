@@ -38,10 +38,16 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.tugas_pertemuan12.R
 import com.example.tugas_pertemuan12.model.Mahasiswa
+import com.example.tugas_pertemuan12.navigation.DestinasiNavigasi
 import com.example.tugas_pertemuan12.ui.customwidget.CostumeTopAppBar
 import com.example.tugas_pertemuan12.ui.viewmodel.HomeUiState
 import com.example.tugas_pertemuan12.ui.viewmodel.HomeViewModel
 import com.example.tugas_pertemuan12.ui.viewmodel.PenyediaViewModel
+
+object DestinasiHome: DestinasiNavigasi {
+    override val route = "home"
+    override val titleRes = "Home Mhs"
+}
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
