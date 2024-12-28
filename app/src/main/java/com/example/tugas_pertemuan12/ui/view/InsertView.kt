@@ -13,6 +13,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
@@ -25,6 +26,7 @@ import com.example.tugas_pertemuan12.ui.viewmodel.InsertUiEvent
 import com.example.tugas_pertemuan12.ui.viewmodel.InsertUiState
 import com.example.tugas_pertemuan12.ui.viewmodel.InsertViewModel
 import com.example.tugas_pertemuan12.ui.viewmodel.PenyediaViewModel
+import kotlinx.coroutines.launch
 
 object DestinasiEntry: DestinasiNavigasi {
     override val route = "item_entry"
@@ -39,6 +41,7 @@ fun EntryMhsScreen(
     viewModel: InsertViewModel = viewModel(factory = PenyediaViewModel.Factory)
 ){
     val coroutineScope = rememberCoroutineScope()
+    val scrollBehaviour = TopAppBarDefaults.enterAlwaysScrollBehavior()
     Scaffold(
         modifier = modifier.nestedScroll(scrollBehaviour.nestedScrollConnection),
         topBar = {
@@ -55,9 +58,11 @@ fun EntryMhsScreen(
             onSiswaValueChange = viewModel::updateInsertMhsState,
             onSaveClick = {
                 coroutineScope.launch {
-                    viewModel.saveMhs()
-                } },
-            modifier = Modifier.padding(innerPadding)
+                    viewModel.insertMhs()
+                    navigateBack()
+                }},
+            modifier = Modifier
+                .padding(innerPadding)
                 .verticalScroll(rememberScrollState())
                 .fillMaxWidth()
         )
@@ -92,7 +97,7 @@ fun EntryBody(
 
 @Composable
 fun FormInput(
-    insertUiEvent: InsertUiEvent
+    insertUiEvent: InsertUiEvent,
     modifier: Modifier = Modifier,
     onvalueChange: (InsertUiEvent) -> Unit = {},
     enabled: Boolean = true
