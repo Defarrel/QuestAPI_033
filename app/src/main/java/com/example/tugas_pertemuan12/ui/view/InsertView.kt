@@ -24,6 +24,7 @@ import com.example.tugas_pertemuan12.ui.customwidget.CostumeTopAppBar
 import com.example.tugas_pertemuan12.ui.viewmodel.InsertUiEvent
 import com.example.tugas_pertemuan12.ui.viewmodel.InsertUiState
 import com.example.tugas_pertemuan12.ui.viewmodel.InsertViewModel
+import com.example.tugas_pertemuan12.ui.viewmodel.PenyediaViewModel
 
 object DestinasiEntry: DestinasiNavigasi{
     override val route = "item_entry"

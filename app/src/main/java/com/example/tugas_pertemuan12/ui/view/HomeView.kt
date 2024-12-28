@@ -41,6 +41,7 @@ import com.example.tugas_pertemuan12.model.Mahasiswa
 import com.example.tugas_pertemuan12.ui.customwidget.CostumeTopAppBar
 import com.example.tugas_pertemuan12.ui.viewmodel.HomeUiState
 import com.example.tugas_pertemuan12.ui.viewmodel.HomeViewModel
+import com.example.tugas_pertemuan12.ui.viewmodel.PenyediaViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -94,13 +95,13 @@ fun HomeStatus(
     when(homeUiState){
         is HomeUiState.Loading -> OnLoading(modifier = modifier.fillMaxSize())
         is HomeUiState.Success ->
-            if(homeUiState.mahasiswa.isEmpty()){
+            if(homeUiState.mhs.isEmpty()){
                 return Box(modifier = modifier.fillMaxSize(), contentAlignment = Alignment.Center){
                     Text(text = "Tidak ada data Mahasiswa")
                 }
             }else{
                 MhsLayout(
-                    mahasiswa = homeUiState.mahasiswa,
+                    mahasiswa = homeUiState.mhs,
                     modifier = modifier.fillMaxWidth(),
                     onDetailClick = {
                         onDetailClick(it.nim) },
