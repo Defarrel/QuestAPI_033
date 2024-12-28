@@ -19,14 +19,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.tugas_pertemuan12.navigation.DestinasiNavigasi
+import com.example.tugas_pertemuan12.ui.navigation.DestinasiNavigasi
 import com.example.tugas_pertemuan12.ui.customwidget.CostumeTopAppBar
 import com.example.tugas_pertemuan12.ui.viewmodel.InsertUiEvent
 import com.example.tugas_pertemuan12.ui.viewmodel.InsertUiState
 import com.example.tugas_pertemuan12.ui.viewmodel.InsertViewModel
 import com.example.tugas_pertemuan12.ui.viewmodel.PenyediaViewModel
 
-object DestinasiEntry: DestinasiNavigasi{
+object DestinasiEntry: DestinasiNavigasi {
     override val route = "item_entry"
     override val titleRes = "Entry Mhs"
 }

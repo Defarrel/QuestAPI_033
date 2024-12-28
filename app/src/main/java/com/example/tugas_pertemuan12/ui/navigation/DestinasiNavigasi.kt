@@ -1,4 +1,4 @@
-package com.example.tugas_pertemuan12.navigation
+package com.example.tugas_pertemuan12.ui.navigation
 
 interface DestinasiNavigasi {
     val route: String
