@@ -1,6 +1,7 @@
 package com.example.tugas_pertemuan12.repository
 
 import com.example.tugas_pertemuan12.model.Mahasiswa
+import com.example.tugas_pertemuan12.service_api.MahasiswaService
 import java.io.IOException
 
 interface MahasiswaRepository{
@@ -12,7 +13,7 @@ interface MahasiswaRepository{
 }
 
 class NetworkKontakRepository(
-    private val kontakApiService: MahasiswaRepository
+    private val kontakApiService: MahasiswaService
 ): MahasiswaRepository{
     override suspend fun insertMahasiswa(mahasiswa: Mahasiswa) {
         kontakApiService.insertMahasiswa(mahasiswa)
