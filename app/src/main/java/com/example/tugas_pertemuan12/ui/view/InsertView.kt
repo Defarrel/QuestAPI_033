@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.Divider
@@ -18,6 +19,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.tugas_pertemuan12.ui.navigation.DestinasiNavigasi
@@ -82,7 +84,7 @@ fun EntryBody(
     ) {
         FormInput(
             insertUiEvent = insertUiState.insertUiEvent,
-            onvalueChange = onSiswaValueChange,
+            onValueChange = onSiswaValueChange,
             modifier = Modifier.fillMaxWidth()
         )
         Button(
@@ -99,7 +101,7 @@ fun EntryBody(
 fun FormInput(
     insertUiEvent: InsertUiEvent,
     modifier: Modifier = Modifier,
-    onvalueChange: (InsertUiEvent) -> Unit = {},
+    onValueChange: (InsertUiEvent) -> Unit = {},
     enabled: Boolean = true
 ){
     Column(
@@ -108,7 +110,7 @@ fun FormInput(
     ) {
         OutlinedTextField(
             value = insertUiEvent.nama,
-            onValueChange = { onvalueChange(InsertUiEvent(nama = it)) },
+            onValueChange = { onValueChange(insertUiEvent.copy(nama = it)) },
             label = { Text("Nama") },
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled,
@@ -116,7 +118,7 @@ fun FormInput(
         )
         OutlinedTextField(
             value = insertUiEvent.nim,
-            onValueChange = { onvalueChange(InsertUiEvent(nim = it)) },
+            onValueChange = { onValueChange(insertUiEvent.copy(nim = it)) },
             label = { Text(text = "NIM") },
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled,
@@ -124,7 +126,7 @@ fun FormInput(
         )
         OutlinedTextField(
             value = insertUiEvent.jenisKelamin,
-            onValueChange = { onvalueChange(InsertUiEvent(jenisKelamin = it)) },
+            onValueChange = { onValueChange(insertUiEvent.copy(jenisKelamin = it)) },
             label = { Text(text = "Jenis Kelamin") },
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled,
@@ -132,7 +134,7 @@ fun FormInput(
         )
         OutlinedTextField(
             value = insertUiEvent.alamat,
-            onValueChange = { onvalueChange(InsertUiEvent(alamat = it)) },
+            onValueChange = { onValueChange(insertUiEvent.copy(alamat = it)) },
             label = { Text(text = "Alamat") },
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled,
@@ -140,7 +142,7 @@ fun FormInput(
         )
         OutlinedTextField(
             value = insertUiEvent.kelas,
-            onValueChange = { onvalueChange(InsertUiEvent(kelas = it)) },
+            onValueChange = { onValueChange(insertUiEvent.copy(kelas = it)) },
             label = { Text(text = "Kelas") },
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled,
@@ -148,7 +150,8 @@ fun FormInput(
         )
         OutlinedTextField(
             value = insertUiEvent.angkatan,
-            onValueChange = { onvalueChange(InsertUiEvent(angkatan = it)) },
+            onValueChange = { onValueChange(insertUiEvent.copy(angkatan = it)) },
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
             label = { Text(text = "Angkatan") },
             modifier = Modifier.fillMaxWidth(),
             enabled = enabled,
