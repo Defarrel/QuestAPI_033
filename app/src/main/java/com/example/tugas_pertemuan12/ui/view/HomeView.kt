@@ -52,7 +52,7 @@ import com.example.tugas_pertemuan12.ui.viewmodel.PenyediaViewModel
 
 object DestinasiHome: DestinasiNavigasi {
     override val route = "home"
-    override val titleRes = "Home Mhs"
+    override val titleRes = "Home Mahasiswa"
 }
 
 @OptIn(ExperimentalMaterial3Api::class)

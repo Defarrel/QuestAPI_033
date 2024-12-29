@@ -7,7 +7,7 @@ import java.io.IOException
 interface MahasiswaRepository{
     suspend fun insertMahasiswa(mahasiswa: Mahasiswa)
     suspend fun getMahasiswa(): List<Mahasiswa>
-    suspend fun getMahasiswaByNim(nim: String): Mahasiswa
+    suspend fun getMahasiswaByNim(nim: String): List<Mahasiswa>
     suspend fun updateMahasiswa(nim: String, mahasiswa: Mahasiswa)
     suspend fun deleteMahasiswa(nim: String)
 }
@@ -23,7 +23,7 @@ class NetworkKontakRepository(
         return kontakApiService.getMahasiswa()
     }
 
-    override suspend fun getMahasiswaByNim(nim: String): Mahasiswa {
+    override suspend fun getMahasiswaByNim(nim: String):List<Mahasiswa> {
         return kontakApiService.getMahasiswaByNim(nim)
     }
 
