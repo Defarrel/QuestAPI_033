@@ -23,6 +23,11 @@ object PenyediaViewModel{
                 createSavedStateHandle(),
                 MahasiswaApplication().container.kontakRepository)
         }
+        initializer {
+            UpdateViewModel(
+                createSavedStateHandle(),
+                MahasiswaApplication().container.kontakRepository)
+        }
     }
 }
 
