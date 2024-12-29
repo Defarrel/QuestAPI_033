@@ -19,6 +19,7 @@ object DestinasiUpdate : DestinasiNavigasi {
     override val route = "update"
     const val NIM = "nim"
     override val titleRes = "Edit Mahasiswa"
+    val routeWithArg = "$route/{$NIM}"
 }
 
 @OptIn(ExperimentalMaterial3Api::class)

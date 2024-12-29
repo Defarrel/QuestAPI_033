@@ -42,14 +42,14 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
             })
         }
         composable(
-            route = "${DestinasiDetail.route}/{nim}",
+            DestinasiDetail.routeWithArg,
             arguments = listOf(
-                navArgument("nim") {
+                navArgument(DestinasiDetail.NIM){
                     type = NavType.StringType
                 }
             )
-        ) { backStackEntry ->
-            val nim = backStackEntry.arguments?.getString("nim")
+        ) {
+            val nim = it.arguments?.getString(DestinasiDetail.NIM)
             nim?.let {
                 DetailView(
                     navigateBack = {
@@ -66,14 +66,14 @@ fun PengelolaHalaman(navController: NavHostController = rememberNavController())
             }
         }
         composable(
-            route = "${DestinasiUpdate.route}/{nim}",
+            DestinasiUpdate.routeWithArg,
             arguments = listOf(
-                navArgument("nim") {
+                navArgument(DestinasiUpdate.NIM){
                     type = NavType.StringType
                 }
             )
-        ){ backStackEntry ->
-            val nim = backStackEntry.arguments?.getString("nim")
+        ){
+            val nim = it.arguments?.getString(DestinasiUpdate.NIM)
             nim?.let {
                 UpdateView(
                     navigateBack = {
